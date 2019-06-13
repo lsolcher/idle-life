@@ -2,8 +2,9 @@
   <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span>Dynasty</span>
+        <br>
+        <span class="font-weight-light">Your Way Through The Ages</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
