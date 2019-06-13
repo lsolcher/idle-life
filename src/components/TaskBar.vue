@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import inventory from "../store/modules/inventory";
+
 export default {
   data: () => ({
     progressValue: 50
@@ -23,14 +25,17 @@ export default {
       const self = this;
       this.intervalid1 = setInterval(function() {
         self.progressValue += 1;
-      }, 300);
+      }, 50);
     }
   },
   watch: {
     progressValue: function(value) {
-      console.log(value);
       if (value >= 100) {
+        //console.log(inventory);
         this.progressValue = 0;
+        console.log(this.$store);
+        this.$store.commit("inventory/add", 1);
+        console.log(this.$store.getters["inventory/food"]);
       }
     }
   }
