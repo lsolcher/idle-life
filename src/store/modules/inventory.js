@@ -2,22 +2,22 @@
 // to make the module reusable.
 // See: https://vuex.vuejs.org/en/modules.html#module-reuse
 const state = () => ({
-    food: 0
+    meat: 0
 });
 
 
 const mutations = {
-    add(state, amount) {
-        state.food += amount;
+    addMeat(state, amount) {
+        state.meat += amount;
     },
-    remove(state, amount) {
-        state.food -= amount;
+    removeMeat(state, amount) {
+        state.meat -= amount;
     }
 };
 
 const getters = {
-    food: state => {
-        return state.food;
+    meat: state => {
+        return state.meat;
     }
 };
 

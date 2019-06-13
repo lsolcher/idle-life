@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import inventory from './modules/inventory'
+import config from './modules/config'
 
 import * as actions from './actions'
 
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     //mutations
     actions,
     modules: {
-        inventory
+        inventory,
+        config
     }
 });

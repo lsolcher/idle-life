@@ -4,7 +4,7 @@
       <p class="pa-0 ma-0">
         <v-flex class="text-xs-center">
           {{name}}
-          <img src="../assets/steak.png" height="20px">
+          <img :src="getImage()" height="20px">
         </v-flex>
       </p>
       <v-progress-linear color="success" class="pa0 ma0" v-model="progressValue"></v-progress-linear>
@@ -19,23 +19,37 @@ export default {
   data: () => ({
     progressValue: 50
   }),
-  props: ["name"],
+  props: ["name", "image", "store", "kind"],
   methods: {
     startAction() {
       const self = this;
       this.intervalid1 = setInterval(function() {
         self.progressValue += 1;
       }, 50);
+    },
+    getImage() {
+      return require("../assets/" + this.image);
     }
   },
   watch: {
     progressValue: function(value) {
       if (value >= 100) {
         //console.log(inventory);
+        console.log(
+          this.store +
+            "/add" +
+            (this.kind.charAt(0).toUpperCase() + this.kind.slice(1))
+        );
         this.progressValue = 0;
         console.log(this.$store);
-        this.$store.commit("inventory/add", 1);
-        console.log(this.$store.getters["inventory/food"]);
+        // add inventory for the given kind
+        this.$store.commit(
+          this.store +
+            "/add" +
+            (this.kind.charAt(0).toUpperCase() + this.kind.slice(1)),
+          1
+        );
+        console.log(this.$store.getters["inventory/meat"]);
       }
     }
   }
